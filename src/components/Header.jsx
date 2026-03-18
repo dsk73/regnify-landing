@@ -39,11 +39,9 @@ export const Header = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-3 cursor-pointer"
+            className="flex items-center gap-1 cursor-pointer"
           >
-            <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
-              <FileText className="w-6 h-6 text-blue-400" />
-            </div>
+            <img src="/logo.png" alt="Regnify Logo" className="h-9 w-auto" />
             <span className="text-2xl font-bold text-white">Regnify</span>
           </motion.div>
 
