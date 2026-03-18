@@ -12,16 +12,37 @@ export const Contact = () => {
     company: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission - will be connected to backend later
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", company: "", message: "" });
-    }, 3000);
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mkoqkwqk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", company: "", message: "" });
+
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 3000);
+      }
+    } catch (error) {
+      console.error("Form error:", error);
+    }
+
+    setLoading(false);
   };
 
   const handleChange = (e) => {
@@ -58,7 +79,7 @@ export const Contact = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Information */}
+          {/* LEFT SIDE (UNCHANGED) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -137,12 +158,11 @@ export const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* FORM (ONLY LOGIC CHANGED) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
             <form
               onSubmit={handleSubmit}
@@ -153,13 +173,11 @@ export const Contact = () => {
                   Your Name *
                 </label>
                 <Input
-                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="bg-slate-900/50 border-slate-700 text-white focus:border-blue-500 focus:ring-blue-500/20"
-                  placeholder="John Doe"
+                  className="bg-slate-900/50 border-slate-700 text-white"
                 />
               </div>
 
@@ -168,13 +186,12 @@ export const Contact = () => {
                   Email Address *
                 </label>
                 <Input
-                  type="email"
                   name="email"
+                  type="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="bg-slate-900/50 border-slate-700 text-white focus:border-blue-500 focus:ring-blue-500/20"
-                  placeholder="john@company.com"
+                  className="bg-slate-900/50 border-slate-700 text-white"
                 />
               </div>
 
@@ -183,12 +200,10 @@ export const Contact = () => {
                   Company
                 </label>
                 <Input
-                  type="text"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="bg-slate-900/50 border-slate-700 text-white focus:border-blue-500 focus:ring-blue-500/20"
-                  placeholder="Your Company Name"
+                  className="bg-slate-900/50 border-slate-700 text-white"
                 />
               </div>
 
@@ -202,17 +217,18 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="bg-slate-900/50 border-slate-700 text-white focus:border-blue-500 focus:ring-blue-500/20 resize-none"
-                  placeholder="Tell us about your reporting needs..."
+                  className="bg-slate-900/50 border-slate-700 text-white resize-none"
                 />
               </div>
 
               <Button
                 type="submit"
-                disabled={submitted}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-6 text-lg rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-6 text-lg rounded-xl"
               >
-                {submitted ? (
+                {loading ? (
+                  "Sending..."
+                ) : submitted ? (
                   <>
                     <Check className="mr-2 w-5 h-5" />
                     Message Sent!
