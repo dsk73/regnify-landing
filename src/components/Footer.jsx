@@ -35,19 +35,25 @@ export const Footer = () => {
 
             <div className="flex gap-4">
               <motion.a
-                href="#"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300"
               >
                 <Linkedin className="w-5 h-5 text-slate-400 hover:text-blue-400 transition-colors" />
               </motion.a>
+
               <motion.a
-                href="#"
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300"
               >
                 <Twitter className="w-5 h-5 text-slate-400 hover:text-blue-400 transition-colors" />
               </motion.a>
+
               <motion.a
                 href="mailto:info@regnify.com"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -63,21 +69,17 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-3">
               {[
-                "SEC EDGAR Filing",
-                "XBRL Tagging",
-                "Compliance Review",
-                "Amendment Support",
+                { label: "SEC EDGAR Filing", link: "#services" },
+                { label: "XBRL Tagging", link: "#services" },
+                { label: "Compliance Review", link: "#services" },
+                { label: "Amendment Support", link: "#services" },
               ].map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.li key={idx} whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href={item.link}
                     className="text-slate-400 hover:text-blue-400 transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </motion.li>
               ))}
@@ -89,21 +91,17 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Industries</h4>
             <ul className="space-y-3">
               {[
-                "Mutual Funds",
-                "Asset Managers",
-                "Public Companies",
-                "Fund Administrators",
+                { label: "Mutual Funds", link: "#expertise" },
+                { label: "Asset Managers", link: "#expertise" },
+                { label: "Public Companies", link: "#expertise" },
+                { label: "Fund Administrators", link: "#expertise" },
               ].map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <motion.li key={idx} whileHover={{ x: 5 }}>
                   <a
-                    href="#"
+                    href={item.link}
                     className="text-slate-400 hover:text-blue-400 transition-colors"
                   >
-                    {item}
+                    {item.label}
                   </a>
                 </motion.li>
               ))}
@@ -119,13 +117,13 @@ export const Footer = () => {
             </p>
             <div className="flex gap-6 text-sm">
               <a
-                href="#"
+                href="/privacy"
                 className="text-slate-400 hover:text-blue-400 transition-colors"
               >
                 Privacy Policy
               </a>
               <a
-                href="#"
+                href="/terms"
                 className="text-slate-400 hover:text-blue-400 transition-colors"
               >
                 Terms of Service
