@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FileText, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 
 export const Header = () => {
