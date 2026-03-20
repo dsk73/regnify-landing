@@ -53,7 +53,7 @@ export const TrustBar = () => {
     { icon: Award, value: "12", label: "Years Experience", delay: 0.1 },
     { icon: Shield, value: "100+", label: "Successful Projects", delay: 0.2 },
     { icon: Users, value: "US GAAP", label: "Expertise", delay: 0.3 },
-    { icon: TrendingUp, value: "Expertise", label: "Mutual Fund", delay: 0.4 },
+    { icon: TrendingUp, value: "Regulatory", label: "Expertise", delay: 0.4 },
   ];
 
   return (
