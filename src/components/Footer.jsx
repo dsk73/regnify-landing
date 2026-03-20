@@ -26,6 +26,7 @@ export const Footer = () => {
                 </div>
                 <h3 className="text-3xl font-bold text-white">CONFIAM LLC</h3>
               </div>
+
               <p className="text-slate-400 leading-relaxed max-w-md">
                 Premium SEC EDGAR and XBRL reporting services for mutual funds
                 and corporate issuers. Trusted partner for regulatory
@@ -69,10 +70,11 @@ export const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-3">
               {[
-                { label: "SEC EDGAR Filing", link: "#services" },
-                { label: "XBRL Tagging", link: "#services" },
-                { label: "Compliance Review", link: "#services" },
-                { label: "Amendment Support", link: "#services" },
+                { label: "Mutual Fund Services", link: "#services" },
+                { label: "Corporate Services", link: "#services" },
+                { label: "XBRL & iXBRL Tagging", link: "#services" },
+                { label: "SEC Error Resolution", link: "#services" },
+                { label: "Filing Readiness", link: "#services" },
               ].map((item, idx) => (
                 <motion.li key={idx} whileHover={{ x: 5 }}>
                   <a
@@ -86,15 +88,16 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Industries */}
+          {/* ✅ NEW: Core Expertise */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Industries</h4>
+            <h4 className="text-white font-semibold mb-4">Core Expertise</h4>
             <ul className="space-y-3">
               {[
-                { label: "Mutual Funds", link: "#expertise" },
-                { label: "Asset Managers", link: "#expertise" },
-                { label: "Public Companies", link: "#expertise" },
-                { label: "Fund Administrators", link: "#expertise" },
+                { label: "EDGAR HTML Conversion", link: "#expertise" },
+                { label: "XBRL & iXBRL Tagging", link: "#expertise" },
+                { label: "Pre-filing QA Review", link: "#expertise" },
+                { label: "Urgent Deadline Support", link: "#expertise" },
+                { label: "PDF Accessibility", link: "#expertise" },
               ].map((item, idx) => (
                 <motion.li key={idx} whileHover={{ x: 5 }}>
                   <a

@@ -16,12 +16,28 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ UPDATED NAV ITEMS (removed Expertise)
   const navItems = [
-    { label: "Services", href: "#services" },
     { label: "Expertise", href: "#expertise" },
+    { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
     { label: "Contact", href: "#contact" },
   ];
+
+  // ✅ Smooth scroll function
+  const scrollToSection = (id) => {
+    const element = document.querySelector(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  // ✅ Scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <motion.header
@@ -36,10 +52,11 @@ export const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* ✅ Logo → scroll to top */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-1 cursor-pointer"
+            onClick={scrollToTop}
+            className="flex items-center gap-2 cursor-pointer"
           >
             <img
               src="/logo.png"
@@ -49,28 +66,31 @@ export const Header = () => {
             <span className="text-2xl font-bold text-white">CONFIAM LLC</span>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* ✅ Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <motion.a
+              <motion.button
                 key={index}
-                href={item.href}
+                onClick={() => scrollToSection(item.href)}
                 whileHover={{ y: -2 }}
-                className="text-slate-300 hover:text-white transition-colors duration-300 font-medium"
+                className="text-slate-300 hover:text-white transition-colors duration-300 font-medium text-lg"
               >
                 {item.label}
-              </motion.a>
+              </motion.button>
             ))}
           </nav>
 
-          {/* CTA Button - Desktop */}
+          {/* ✅ CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-2 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105">
+            <Button
+              onClick={() => scrollToSection("#contact")}
+              className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-2 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105"
+            >
               Get Started
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* ✅ Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors"
@@ -84,7 +104,7 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Menu */}
       <motion.div
         initial={false}
         animate={{
@@ -96,16 +116,19 @@ export const Header = () => {
       >
         <nav className="px-6 py-6 space-y-4">
           {navItems.map((item, index) => (
-            <a
+            <button
               key={index}
-              href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-slate-300 hover:text-white transition-colors duration-300 font-medium py-2"
+              onClick={() => scrollToSection(item.href)}
+              className="block w-full text-left text-slate-300 hover:text-white transition-colors duration-300 font-medium py-2"
             >
               {item.label}
-            </a>
+            </button>
           ))}
-          <Button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-300 mt-4">
+
+          <Button
+            onClick={() => scrollToSection("#contact")}
+            className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-300 mt-4"
+          >
             Get Started
           </Button>
         </nav>

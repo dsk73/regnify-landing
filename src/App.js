@@ -18,7 +18,10 @@ function App() {
       <main>
         <Hero />
         <TrustBar />
-        <CoreCapabilities />
+
+        <div id="expertise">
+          <CoreCapabilities />
+        </div>
 
         <div id="services">
           <Services />
