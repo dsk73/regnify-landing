@@ -110,7 +110,7 @@ export const WhyRegnify = () => {
             </span>
           </motion.div>
 
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Why Choose{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
               CONFIAM LLC
