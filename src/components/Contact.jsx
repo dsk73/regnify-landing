@@ -53,21 +53,21 @@ export const Contact = () => {
   };
 
   return (
-    <section className="relative py-24 bg-slate-950 overflow-hidden">
+    <section className="relative py-24 bg-slate-950 overflow-hidden overflow-x-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950" />
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
-      <div className="absolute top-1/2 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px]" />
+      <div className="hidden md:block absolute top-1/2 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
+      <div className="hidden md:block absolute top-1/2 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Let's{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
               Connect
@@ -78,16 +78,16 @@ export const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 items-stretch">
           {/* LEFT SIDE (UNCHANGED) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
+            className="space-y-8 h-full flex flex-col"
           >
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50">
+            <div className="p-6 md:p-8 rounded-3xl box-border bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 h-full w-full max-w-full">
               <h3 className="text-3xl font-bold text-white mb-6">
                 Get in Touch
               </h3>
@@ -103,7 +103,7 @@ export const Contact = () => {
                   <div>
                     <p className="text-sm text-slate-400 mb-1">Email</p>
                     <a
-                      href="mailto:info@CONFIAM LLC.com"
+                      href="mailto:info@confiamllc.com"
                       className="text-lg font-semibold text-white hover:text-blue-400 transition-colors"
                     >
                       info@confiamllc.com
@@ -128,7 +128,7 @@ export const Contact = () => {
                 </motion.div>
               </div>
 
-              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-blue-600/20 border border-blue-500/30">
+              <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-blue-600/20 via-cyan-600/20 to-blue-600/20 border border-blue-500/30 ">
                 <p className="text-lg font-semibold text-white mb-2">
                   Service Model
                 </p>
@@ -138,43 +138,24 @@ export const Contact = () => {
                 </p>
               </div>
             </div>
-
-            {/* Trust indicators */}
-            <div className="grid grid-cols-2 gap-4">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 text-center"
-              >
-                <p className="text-3xl font-bold text-blue-400 mb-2">12+</p>
-                <p className="text-sm text-slate-400">Years Experience</p>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 text-center"
-              >
-                <p className="text-2xl font-bold text-cyan-400 mb-2">
-                  Compliance Expertise
-                </p>
-                {/* <p className="text-sm text-slate-400"></p> */}
-              </motion.div>
-            </div>
           </motion.div>
 
           {/* FORM (ONLY LOGIC CHANGED) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             <form
               onSubmit={handleSubmit}
-              className="p-8 rounded-3xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 space-y-6"
+              className="p-6 md:p-8 rounded-3xl box-border bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 space-y-6 h-full flex flex-col justify-between w-full max-w-full"
             >
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">
                   Your Name *
                 </label>
                 <Input
+                  aria-label="Your Name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -188,6 +169,7 @@ export const Contact = () => {
                   Email Address *
                 </label>
                 <Input
+                  aria-label="Email Address"
                   name="email"
                   type="email"
                   value={formData.email}
@@ -202,6 +184,7 @@ export const Contact = () => {
                   Company
                 </label>
                 <Input
+                  aria-label="Company"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
@@ -214,6 +197,7 @@ export const Contact = () => {
                   Message *
                 </label>
                 <Textarea
+                  aria-label="Message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
@@ -226,7 +210,7 @@ export const Contact = () => {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-6 text-lg rounded-xl"
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-4 md:py-6 text-lg rounded-xl"
               >
                 {loading ? (
                   "Sending..."

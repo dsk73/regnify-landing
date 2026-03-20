@@ -62,7 +62,7 @@ export const Hero = () => {
           <img
             src="https://images.unsplash.com/photo-1644088379091-d574269d422f"
             alt="visual"
-            className="rounded-2xl shadow-2xl border border-slate-700"
+            className="rounded-2xl w-full max-w-full shadow-2xl border border-slate-700"
           />
         </motion.div>
       </div>

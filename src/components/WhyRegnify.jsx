@@ -86,8 +86,8 @@ export const WhyRegnify = () => {
   return (
     <section className="relative py-24 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
