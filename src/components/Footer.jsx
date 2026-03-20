@@ -24,7 +24,7 @@ export const Footer = () => {
                 <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
                   <FileText className="w-8 h-8 text-blue-400" />
                 </div>
-                <h3 className="text-3xl font-bold text-white">Regnify</h3>
+                <h3 className="text-3xl font-bold text-white">CONFIAM LLC</h3>
               </div>
               <p className="text-slate-400 leading-relaxed max-w-md">
                 Premium SEC EDGAR and XBRL reporting services for mutual funds
@@ -55,7 +55,7 @@ export const Footer = () => {
               </motion.a>
 
               <motion.a
-                href="mailto:info@regnify.com"
+                href="mailto:info@confiamllc.com"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300"
               >
@@ -113,7 +113,7 @@ export const Footer = () => {
         <div className="pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm">
-              © {currentYear} Regnify. All rights reserved.
+              © {currentYear} CONFIAM LLC. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a

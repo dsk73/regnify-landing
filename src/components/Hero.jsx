@@ -35,8 +35,8 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl text-slate-300">
-            Regnify delivers high-accuracy, deadline-driven SEC EDGAR and XBRL
-            reporting services.
+            CONFIAM LLC delivers high-accuracy, deadline-driven SEC EDGAR and
+            XBRL reporting services.
           </p>
 
           <div className="flex flex-wrap gap-4">

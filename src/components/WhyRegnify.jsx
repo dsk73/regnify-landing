@@ -106,14 +106,14 @@ export const WhyRegnify = () => {
           >
             <Star className="w-5 h-5 text-blue-400" />
             <span className="text-blue-300 font-semibold">
-              The Regnify Difference
+              The CONFIAM LLC Difference
             </span>
           </motion.div>
 
           <h2 className="text-5xl font-bold text-white mb-6">
             Why Choose{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-              Regnify
+              CONFIAM LLC
             </span>
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">

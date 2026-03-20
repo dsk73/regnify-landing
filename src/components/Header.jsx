@@ -41,8 +41,12 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-1 cursor-pointer"
           >
-            <img src="/logo.png" alt="Regnify Logo" className="h-9 w-auto" />
-            <span className="text-2xl font-bold text-white">Regnify</span>
+            <img
+              src="/logo.png"
+              alt="CONFIAM LLC Logo"
+              className="h-9 w-auto"
+            />
+            <span className="text-2xl font-bold text-white">CONFIAM LLC</span>
           </motion.div>
 
           {/* Desktop Navigation */}
