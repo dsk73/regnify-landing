@@ -42,9 +42,9 @@ export const CoreCapabilities = () => {
   const capabilities = [
     {
       icon: FileText,
-      title: "SEC EDGAR Filing",
+      title: "EDGAR HTML Conversion",
       description:
-        "Complete preparation and submission of SEC EDGAR filings with meticulous attention to regulatory requirements.",
+        "End-to-end EDGAR HTML conversion and submission services, ensuring accurate formatting, compliance with SEC standards, and timely, error-free regulatory filings.",
       delay: 0.1,
     },
     {
@@ -68,6 +68,12 @@ export const CoreCapabilities = () => {
         "Rapid turnaround for amendments and urgent filing deadlines with dedicated priority handling.",
       delay: 0.4,
     },
+    {
+      icon: FileText,
+      title: "PDF Accessibility",
+      description:
+        "ADA-compliant PDF tagging to ensure accessibility standards for regulatory and investor documents.",
+    },
   ];
 
   return (
@@ -86,7 +92,7 @@ export const CoreCapabilities = () => {
           <h2 className="text-5xl font-bold text-white mb-6">
             Core{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-              Capabilities
+              Expertise
             </span>
           </h2>
           <p className="text-xl text-slate-400 max-w-3xl mx-auto">
@@ -95,7 +101,7 @@ export const CoreCapabilities = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-4 ">
           {capabilities.map((capability, index) => (
             <CapabilityCard key={index} {...capability} />
           ))}

@@ -7,6 +7,7 @@ import {
   AlertCircle,
   FileCheck,
   Sparkles,
+  FileText,
 } from "lucide-react";
 
 const ServiceCard = ({ icon: Icon, title, description, highlights, delay }) => {
@@ -19,25 +20,22 @@ const ServiceCard = ({ icon: Icon, title, description, highlights, delay }) => {
       whileHover={{ scale: 1.05 }}
       className="relative group"
     >
-      <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-slate-800/40 to-slate-900/60 backdrop-blur-md border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500">
-        {/* Animated gradient overlay */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-600/0 via-cyan-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-cyan-600/5 group-hover:to-blue-600/10 transition-all duration-500" />
+      <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-slate-800/60 to-slate-900/80 backdrop-blur-lg border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500">
+        {/* Hover glow */}
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-500" />
 
         <div className="relative z-10">
           {/* Icon */}
           <div className="mb-6">
-            <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 group-hover:from-blue-500/30 group-hover:to-cyan-500/30 transition-all duration-300">
-              <Icon className="w-7 h-7 text-blue-400" />
+            <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+              <Icon className="w-7 h-7 text-cyan-400" />
             </div>
           </div>
 
-          {/* Title */}
           <h3 className="text-2xl font-bold text-white mb-4">{title}</h3>
 
-          {/* Description */}
           <p className="text-slate-400 mb-6 leading-relaxed">{description}</p>
 
-          {/* Highlights */}
           <ul className="space-y-2">
             {highlights.map((highlight, idx) => (
               <li
@@ -50,6 +48,9 @@ const ServiceCard = ({ icon: Icon, title, description, highlights, delay }) => {
             ))}
           </ul>
         </div>
+
+        {/* Bottom accent line */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent group-hover:w-full transition-all duration-500" />
       </div>
     </motion.div>
   );
@@ -59,20 +60,20 @@ export const Services = () => {
   const services = [
     {
       icon: Building2,
-      title: "Mutual Fund Filings",
+      title: "Mutual Fund Services",
       description:
         "Complete filing services for registered investment companies and mutual funds.",
       highlights: [
         "N-CSR (Certified Shareholder Reports)",
-        "N-CEN (Annual Reports for Registered Investment Companies)",
-        "N-PORT (Monthly Portfolio Holdings)",
+        "DEF 14A (Proxy Statements)",
         "485BPOS (Post-Effective Amendments)",
+        "486BPOS (Post-Effective Amendments)",
       ],
       delay: 0.1,
     },
     {
       icon: TrendingUp,
-      title: "Corporate Filings",
+      title: "Corporate Services",
       description:
         "Comprehensive SEC filing solutions for public companies and corporate issuers.",
       highlights: [
@@ -122,12 +123,49 @@ export const Services = () => {
       ],
       delay: 0.5,
     },
+
+    // ✅ NEW CARD (ADA TAGGING)
+    {
+      icon: FileText,
+      title: "PDF Accessibility",
+      description:
+        "ADA-compliant PDF tagging services to ensure accessibility standards for regulatory filings and investor communications.",
+      highlights: [
+        "WCAG & ADA compliance",
+        "Screen reader compatibility",
+        "Tagged PDF structure",
+        "Accessibility validation",
+      ],
+      delay: 0.6,
+    },
   ];
 
   return (
-    <section className="relative py-24 bg-gradient-to-b from-slate-950 to-slate-900">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+    <section className="relative py-24 bg-slate-950 overflow-hidden">
+      {/* ✅ SAME BACKGROUND AS INDUSTRY SECTION */}
+      <div className="absolute inset-0">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div

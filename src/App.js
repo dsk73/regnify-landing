@@ -6,7 +6,6 @@ import { Hero } from "./components/Hero";
 import { TrustBar } from "./components/TrustBar";
 import { CoreCapabilities } from "./components/CoreCapabilities";
 import { Services } from "./components/Services";
-import { IndustryExpertise } from "./components/IndustryExpertise";
 import { WhyRegnify } from "./components/WhyRegnify";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
@@ -23,10 +22,6 @@ function App() {
 
         <div id="services">
           <Services />
-        </div>
-
-        <div id="expertise">
-          <IndustryExpertise />
         </div>
 
         <div id="about">

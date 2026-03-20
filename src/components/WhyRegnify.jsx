@@ -55,7 +55,7 @@ export const WhyRegnify = () => {
   const features = [
     {
       icon: Star,
-      title: "Senior-Level Attention",
+      title: "Regulatory Expertise",
       description:
         "Work directly with experienced professionals who understand the nuances of regulatory reporting, not junior staff.",
       delay: 0.1,

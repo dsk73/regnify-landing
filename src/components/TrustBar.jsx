@@ -51,9 +51,9 @@ const StatCard = ({ icon: Icon, value, label, delay }) => {
 export const TrustBar = () => {
   const stats = [
     { icon: Award, value: "12", label: "Years Experience", delay: 0.1 },
-    { icon: Shield, value: "500", label: "Filings Completed", delay: 0.2 },
+    { icon: Shield, value: "100+", label: "Successful Projects", delay: 0.2 },
     { icon: Users, value: "US GAAP", label: "Expertise", delay: 0.3 },
-    { icon: TrendingUp, value: "99.8", label: "% Accuracy Rate", delay: 0.4 },
+    { icon: TrendingUp, value: "Expertise", label: "Mutual Fund", delay: 0.4 },
   ];
 
   return (

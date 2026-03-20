@@ -152,8 +152,8 @@ export const Contact = () => {
                 whileHover={{ scale: 1.05 }}
                 className="p-6 rounded-2xl bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-slate-700/50 text-center"
               >
-                <p className="text-3xl font-bold text-cyan-400 mb-2">99.8%</p>
-                <p className="text-sm text-slate-400">Accuracy Rate</p>
+                <p className="text-2xl font-bold text-cyan-400 mb-2">Compliance Expertise</p>
+                {/* <p className="text-sm text-slate-400"></p> */}
               </motion.div>
             </div>
           </motion.div>
