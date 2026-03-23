@@ -36,10 +36,6 @@ export const Header = () => {
   };
 
   // ✅ Scroll to top
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setIsMobileMenuOpen(false);
-  };
 
   return (
     <motion.header
