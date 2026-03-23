@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -152,18 +154,15 @@ export const Footer = () => {
               © {currentYear} CONFIAM LLC. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a
-                href="/privacy"
+              <Link
+                to="/privacy"
                 className="text-slate-400 hover:text-blue-400 transition-colors"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="/terms"
-                className="text-slate-400 hover:text-blue-400 transition-colors"
-              >
+              </Link>
+              <Link to="/terms" className="text-slate-400 hover:text-blue-400">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

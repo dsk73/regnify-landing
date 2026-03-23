@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +57,7 @@ export const Header = () => {
           {/* ✅ Logo → scroll to top */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            onClick={scrollToTop}
+            onClick={() => navigate("/")}
             className="flex items-center gap-2 cursor-pointer"
           >
             <img
@@ -118,7 +120,14 @@ export const Header = () => {
           {navItems.map((item, index) => (
             <button
               key={index}
-              onClick={() => scrollToSection(item.href)}
+              onClick={() => {
+                navigate("/");
+                setTimeout(() => {
+                  document
+                    .querySelector(item.href)
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
               className="block w-full text-left text-slate-300 hover:text-white transition-colors duration-300 font-medium py-2"
             >
               {item.label}
@@ -126,7 +135,14 @@ export const Header = () => {
           ))}
 
           <Button
-            onClick={() => scrollToSection("#contact")}
+            onClick={() => {
+              navigate("/");
+              setTimeout(() => {
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }, 100);
+            }}
             className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl shadow-lg shadow-blue-500/20 transition-all duration-300 mt-4"
           >
             Get Started
