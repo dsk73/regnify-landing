@@ -122,7 +122,7 @@ export const WhyRegnify = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-4">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}
