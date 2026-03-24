@@ -69,7 +69,14 @@ export const Header = () => {
             {navItems.map((item, index) => (
               <motion.button
                 key={index}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => {
+                  navigate("/");
+                  setTimeout(() => {
+                    document
+                      .querySelector(item.href)
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }, 100);
+                }}
                 whileHover={{ y: -2 }}
                 className="text-slate-300 hover:text-white transition-colors duration-300 font-medium text-lg"
               >
@@ -81,7 +88,14 @@ export const Header = () => {
           {/* ✅ CTA Button */}
           <div className="hidden md:block">
             <Button
-              onClick={() => scrollToSection("#contact")}
+              onClick={() => {
+                navigate("/");
+                setTimeout(() => {
+                  document
+                    .querySelector("#contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              }}
               className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-2 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 hover:scale-105"
             >
               Get Started
