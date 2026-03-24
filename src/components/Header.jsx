@@ -26,15 +26,6 @@ export const Header = () => {
     { label: "Contact", href: "#contact" },
   ];
 
-  // ✅ Smooth scroll function
-  const scrollToSection = (id) => {
-    const element = document.querySelector(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-  };
-
   // ✅ Scroll to top
 
   return (
